@@ -16,12 +16,11 @@ This workflow makes a call to OpenAI GPT-4o API using the NegiTools custom node.
    <img src="https://github.com/user-attachments/assets/4b09aaf4-3994-40c9-abca-be3a38c75b53" width="50%">
   </p>
 
-
 While making comics or any other form of visual storytelling using generative AI, achieving consistency in clothing and specific objects across panels is essential. It’s easier to do with characters and art styles by using LoRAs. But it’s impractical to train a LoRA for clothing because using too many concept LoRAs together creates unwanted artifacts. A character may might wear different outfits in different scenes, so generating the clothing as a part of the character by including it consistently in every image of the LoRA dataset isn’t practical either. We need a method to upload an image of clothing or an object and transfer it seamlessly into the target image.
 
 To solve this problem we used an interesting capability of the Flux Fill inpainting model that transfers concepts from one part of an image to another part of the *same image* remarkably well.
 
-This repository contains a ComfyUI workflow for achieving this. The explanation of the workflow is below. The workflow does not include the final inpainting pass to improve quality because that needs the checkpoint and generation configuration specific to the target image’s style. Feel free to add that on your own. You will need to enter an OpenAI API key in the NegiTools OpenAI custom node.
+This repository contains a ComfyUI workflow for achieving this. The explanation of the workflow is below. The workflow does not include the final inpainting pass to improve quality because that needs the checkpoint and generation configuration specific to the target image’s style. Feel free to add that on your own. 
 ![clothes transfer workflow image](https://github.com/user-attachments/assets/daf0ff42-3f4d-4666-bebe-8d3e2273c263)
 
 
