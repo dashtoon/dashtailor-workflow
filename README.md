@@ -29,7 +29,7 @@ This repository contains a ComfyUI workflow for achieving this. The explanation 
 
 1. **Masking:** Draw masks on the
     - Object image – the mask covers the piece of clothing the character needs to wear
-      | Objject image | Object mask |
+      | Object image | Object mask |
       |---------|---------|
       | ![object iamge](https://github.com/user-attachments/assets/548788ae-e64a-4804-9411-2a97d12e1e77) | ![object mask](https://github.com/user-attachments/assets/a265ef6a-02dc-4354-a440-8313b2c6c833) |
     
