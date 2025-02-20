@@ -43,19 +43,19 @@ This repository contains a ComfyUI workflow for achieving this. The explanation 
    <img src="https://github.com/user-attachments/assets/89c6c37e-fa3d-443f-944d-79354e9710b4" width="50%">
   </p>
   
-4. **Using GPT-4o Vision:** Describe the isolated object to use as a prompt. The GPT instruction prompt is: `Describe the clothing, object, design or any other item in this image. Be brief and to the point. Avoid starting phrases like "This image contains...”`
+3. **Using GPT-4o Vision:** Describe the isolated object to use as a prompt. The GPT instruction prompt is: `Describe the clothing, object, design or any other item in this image. Be brief and to the point. Avoid starting phrases like "This image contains...”`
 In this case the extracted object prompt was `Metallic plate armor with intricate designs, including a winged emblem on the chest. Brown leather straps and accents secure the armor, complemented by layered pauldrons and arm guards.` 
-5. **Creating a Composite Image:** Join the object image and the target image side by side. Scale the object image height up or down to match the target image.
+4. **Creating a Composite Image:** Join the object image and the target image side by side. Scale the object image height up or down to match the target image.
    <p align="center">
    <img src="https://github.com/user-attachments/assets/b0163e03-219d-4116-862a-0130d4ef90a4" width="50%">
   </p>
 
-6. Pose controlnet: To maintain the pose of the original subject while inpainting, we passed the composite image into an Openpose annotator and used Flux Union Controlnet with type Openpose and strength value of 0.8.
+5. Pose controlnet: To maintain the pose of the original subject while inpainting, we passed the composite image into an Openpose annotator and used Flux Union Controlnet with type Openpose and strength value of 0.8.
     <p align="center">
    <img src="https://github.com/user-attachments/assets/013460c0-3b7a-435a-ae95-e05ed1669fe3" width="50%">
   </p>
 
-7. **Flux Fill Inpainting:** Use the composite image along with the GPT extracted prompt as the conditioning to guide the inpainting process. The inpainting parameters are:
+6. **Flux Fill Inpainting:** Use the composite image along with the GPT extracted prompt as the conditioning to guide the inpainting process. The inpainting parameters are:
     1. Denoise: 1
     2. Steps: 20
     3. CFG: 1
@@ -63,20 +63,24 @@ In this case the extracted object prompt was `Metallic plate armor with intricat
     5. Scheduler: Beta
     
     This seamlessly transfers the object into the masked area.
-    
 
    <p align="center">
    <img src="https://github.com/user-attachments/assets/10970235-17f3-450d-9477-a53c08d9def2" width="50%">
   </p>
     
-9. Cropping the composite image: Crop the output from the left by the width of the scaled object mask image to get the target image with the transferred output.
+7. Cropping the composite image: Crop the output from the left by the width of the scaled object mask image to get the target image with the transferred output.
     <p align="center">
    <img src="https://github.com/user-attachments/assets/41b6c465-6b52-4f7b-9628-0d5157985a20" width="50%">
     </p>
     
-10. This output may still have some rough edges and artifacts. Also there may be a style mismatch if the object image was in a different art style than the target image. So we recommend doing one final inpainting pass at 0.15 to 0.2 denoise and the same object prompt from earlier. It’s important that this inpainting pass uses the checkpoint, Lora, and generation configuration that’s suitable for the target image style. This will eliminate any artifacts and ensure style consistency. For example, if your target image is in anime style, use an anime checkpoint or Lora for this step.
+8. This output may still have some rough edges and artifacts. Also there may be a style mismatch if the object image was in a different art style than the target image. So we recommend doing one final inpainting pass at 0.15 to 0.2 denoise and the same object prompt from earlier. It’s important that this inpainting pass uses the checkpoint, Lora, and generation configuration that’s suitable for the target image style. This will eliminate any artifacts and ensure style consistency. For example, if your target image is in anime style, use an anime checkpoint or Lora for this step.
     <p align="center">
      <img src="https://github.com/user-attachments/assets/c1e22d4d-cd1f-42f0-b22a-eefa131f84d3" width="50%">
+    </p>
+
+9. Optionally, you can use the Flux Redux model instead of relying on GPT to write a prompt based on the masked object. To use Redux, change the value in this node in the _Generation parameters_ section  from 1 to 2. However, Redux is tricky to use. If your object and target masks do not perfectly match, black patches may be generated. For a general use case I would recommend using a prompt.
+   <p align="center">
+     <img src="https://github.com/user-attachments/assets/b6d911b7-2c57-4722-97e4-680d57ea78ad" width="50%">
     </p>
 
 ## **Why Does This Work?**
