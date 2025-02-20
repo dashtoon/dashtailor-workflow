@@ -1,5 +1,5 @@
 # dashtailor-workflow
-ComfyUI Workflow for Training Free Clothing and Object Transfer in Images
+<a href="https://github.com/dashtoon/dashtailor-workflow/blob/main/Dashtoon%20clothes%20and%20object%20transfer%20v4.json">ComfyUI Workflow</a> for Training Free Clothing and Object Transfer in Images
 
 This workflow enables you to reliably transfer any object from an image into a target image while maintaining the scene context of the target image. This is particularly useful for transferring clothing onto a character. 
 ![clothes transfer example for gradio](https://github.com/user-attachments/assets/4af61149-08bb-4e17-9811-b7aa3876dac6)
