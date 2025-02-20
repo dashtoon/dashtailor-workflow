@@ -3,6 +3,7 @@
 
 This workflow enables you to reliably transfer any object from an image into a target image while maintaining the scene context of the target image. This is particularly useful for transferring clothing onto a character. 
 ![clothes transfer example for gradio](https://github.com/user-attachments/assets/4af61149-08bb-4e17-9811-b7aa3876dac6)
+![final inpainted grid](https://github.com/user-attachments/assets/ee8c8a12-98e9-4456-a172-b7e215abb13e)
 
 ## **Models**
 <a href = "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev">Flux Fill dev</a> 
