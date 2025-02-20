@@ -97,4 +97,9 @@ You can run this workflow in CommfyUI, as explained above.
 DashTailor is also available to use on dashtoon.com/studio. Just Create a new Dashtoon and use the tool in the Editor section.
 
 ## More examples
-![clothes transfer example for gradio](https://github.com/user-attachments/assets/061e60f2-643a-4298-a262-ce6e5483e9a0)
+![2](https://github.com/user-attachments/assets/013b5f91-6c3e-48ff-82e8-3364d73c92ca)
+![1](https://github.com/user-attachments/assets/4bd6ebf3-8794-47e9-8d09-247e58abf3f1)
+![3](https://github.com/user-attachments/assets/f4f166cf-cf80-4510-bcd7-95675a285f49)
+![4](https://github.com/user-attachments/assets/bbb38d93-f2e7-4f64-8213-788af846437b)
+![5](https://github.com/user-attachments/assets/d7c6ed5f-a895-44d7-bfca-67b68f2f5162)
+
